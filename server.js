@@ -7,6 +7,10 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 
+//Controller
+const postsController = require('./controllers/posts.js'); 
+app.use('/posts', postsController); 
+
 
 
 
