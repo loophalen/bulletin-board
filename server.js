@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-app.get('/', (req, res)=>{
-    res.send('hello world')
-});
+// Middleware
+app.use(express.json());
+app.use(express.static('public'));
 
 
 
