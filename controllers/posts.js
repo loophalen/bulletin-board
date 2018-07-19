@@ -9,19 +9,19 @@ router.get('/', (req, res) =>{
     }); 
 }); 
 
-//DELETE 
-router.delete('/:id', (req, res)=>{
-    Posts.findByIdAndRemove(req.params.id, (err, deletedPosts)=>{
-        res.json(deletedPosts); 
-    }); 
-}); 
-
 //CREATE ROUTE
 router.post('/', (req, res)=>{
     Posts.create(req.body, (err, createdPosts)=>{
         res.json(createdPosts); 
     }); 
 }); 
+
+//DELETE ROUTE 
+router.delete('/:id', (req, res)=>{
+    Posts.findByIdAndRemove(req.params.id, (err, deletedPosts)=>{
+        res.json(deletedPosts)
+    })
+})
 
 //UPDATE ROUTE
 router.put('/:id', (req, res)=>{
