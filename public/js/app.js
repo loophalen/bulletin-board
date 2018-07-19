@@ -22,6 +22,40 @@ app.controller("MainController", ['$http', function($http){
     }).catch((err)=>{ console.log("Promise error:", err); });
   }
 
+  //DELETE 
+  ctrl.deletePosts = (post_id) => {
+    console.log('/posts/' + post_id)
+    $http({
+      method:'DELETE', 
+      url: '/posts/' + post_id 
+    }).then((response) => {
+      ctrl.getPosts();
+      }, 
+      (error) => {
+        
+      }
+    )
+  }
+
+  //EDIT
+  ctrl.editPosts = (post) => {
+    $http({
+      method:'PUT', 
+      url:'/posts/' + post._id, 
+      data: {
+        title: post.title, 
+        message: post.message
+      }
+  }).then(
+    function(response){
+      // ctrl.getPosts(); 
+    }, 
+    function(error){
+
+    }
+  )
+}
+
   // Create a new post (assuming the UI successfully populated the object)
   ctrl.createPost = () => {
     $http({

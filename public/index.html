@@ -20,6 +20,16 @@
       <div ng-repeat="post in ctrl.posts">
         <h2>{{ post.title }}</h2>
         <p>{{ post.message }}</p>
+         <!-- Delete -->
+        <button ng-click="ctrl.deletePosts(post._id)">Delete Post</button>
+
+          <!-- Edit -->
+          <form ng-submit="ctrl.editPosts(post);">
+              <input type="text" placeholder="Title" ng-model="post.title">
+              <textarea placeholder="Write something..." ng-model="post.message"></textarea>
+              <input type="submit" value="Edit Post">
+          </form>
+
       </div>
     </div>
   </body>
